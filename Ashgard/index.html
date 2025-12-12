@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Ashgard template</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/"/>
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="carousel.css" rel="stylesheet" />
+    <link href="fade.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="breadcrumbs/aindex.html" rel="stylesheet" />
+    <link href="contact.css" rel="stylesheet"/>
+
+    <style>
+      .html{  
+        scroll-behavior: smooth;
+      }
+
+      .service-title {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #600f9b; /* your preferred color */
+      color: white;
+      padding: 35px 30px;
+      border-radius: 40%;
+      font-size: 2rem;
+    }
+
+
+       .hero-bg {
+        background: linear-gradient(135deg, #000000 0%, #4b0082 50%, #6a11cb 100%);
+        padding: 100px 40px;
+        min-height: 450px;
+        border-radius: 10px;
+        color: #fff; 
+      }
+
+
+      .hero-content-bg {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 15px;
+      }
+
+
+       .typing-container {
+        display: inline-block;
+        height: 40px; /* lock the height */
+        overflow: hidden; 
+        white-space: nowrap;
+      }
+
+      .typing-text {
+        border-right: 2px solid #f5f5f5; /* cursor effect */
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        font-size: 1.8rem;
+      }
+
+      /* blinking cursor */
+      @keyframes blinkCursor {
+        0%, 100% { border-color: transparent; }
+        50% { border-color: #712cf9; }
+      }
+
+      .typing-text {
+        animation: blinkCursor 0.7s steps(1) infinite;
+      }
+
+
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+        @media (max-width: 768px) {
+          .fade-scroll,
+          .fade-scroll-right {
+            transform: none !important;
+            transition: opacity 0.8s ease-out !important; /* allow fade */
+            opacity: 0; /* still start hidden */
+          }
+          }
+
+          
+          .fade-in {
+            opacity: 1 !important;
+          }
+
+
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #8684841a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .btn-scale {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-scale:hover {
+      transform: scale(1.06); /* adjust size here */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* optional but looks nice */
+      }
+
+      /* Modern button style */
+    .btn-modern {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      padding: 0.6rem 1.6rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .btn-modern:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      background: linear-gradient(90deg, #2575fc, #6a11cb); /* reverse gradient */
+    }
+
+    .btn-modern:active {
+      transform: scale(0.98);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Optional: small loading spinner inside button */
+    .btn-spinner {
+      position: relative;
+    }
+
+    .btn-spinner .spinner-border {
+      width: 1rem;
+      height: 1rem;
+      border-width: 0.15em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -0.5rem;
+      margin-left: -0.5rem;
+      display: none; /* hidden by default */
+    }
+
+    .btn-spinner.loading .spinner-border {
+      display: inline-block;
+      color: #fff;
+    }
+
+    .btn-spinner.loading .btn-text {
+      visibility: hidden;
+    }
+
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      a{
+        text-decoration: none !important;
+      }
+      p{
+        color: rgb(255, 255, 255);
+      }
+
+      .navbar-nav .nav-link {
+        transition: all 0.5s ease;
+        position: relative;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #712cf9 !important;
+        text-shadow: 0 0 8px rgba(113, 44, 249, 0.3);
+      }
+      .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #712cf9;
+        transition: width 0.5s ease;
+      }
+
+      .navbar-nav .nav-link:hover::after {
+        width: 100%;
+      }
+      
+    .navbar-nav .nav-link.active-section {
+     color: #712cf9 !important;
+     text-shadow: 0 0 8px rgba(113, 44, 249, 0.3);
+      }
+    .navbar-nav .nav-link.active-section::after {
+     width: 100%;
+      }
+
+    
+
+      h2{
+        transition: transform 0.9s ease-in-out, box-shadow 0.9s ease-in-out;
+      }
+      h2:hover {
+        transform: scale(1.00); 
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+      }
+      .featurette-divider {
+        height: 3px;
+        border: none;
+        /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+        border-top: 3px solid #384047 !important;
+        opacity: 1;
+      }
+
+      .about-title {
+        position: relative;
+        padding-left: 70px; /* creates space for the shape */
+      }
+
+      .about-title::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: -5px;
+        width: 50px;
+        height: 40px;
+        background: #3288d3; /* change color if needed */
+        transform: skew(-30deg); /* parallelogram */
+        border-radius: 3px;
+      }
+
+
+
+      .about-text {
+      position: relative;
+      padding-left: 20px; /* space for the line */
+      border-left: 4px solid #712cf9; /* customize color */
+    }
+
+    .about-text-line::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 4px;
+      background-color: #712cf9;
+      border-radius: 2px;
+    }
+
+
+
+    .featurette-image:hover {
+      transform: scale(1.05); 
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+    } 
+
+    /* Floating animation for the SVG */
+    .contact-icon {
+      animation: floatIcon 3s ease-in-out infinite;
+      color: #ffffff; /* nice purple glow */
+    }
+
+    @keyframes floatIcon {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+
+    body {
+        background: linear-gradient(to bottom, #000000, #2c003e, #2a0147);
+        color: #f5f5f5; 
+        margin-top: 80px; 
+      }
+
+      .multi-gradient-bg {
+        min-height: 100vh;
+
+        background: radial-gradient(circle at top left,    #fcfcfc 0%, transparent 0%),
+                    radial-gradient(circle at top right,   #6007a0 0%, transparent 50%),
+                    radial-gradient(circle at bottom left, #5f1494 0%, transparent 50%),
+                    radial-gradient(circle at bottom right,#4b077c 0%, transparent 50%),
+                    linear-gradient(to bottom, #000000, #1a0026 50%, #000000);
+
+        background-color: #000; /* fallback */
+      }
+
+
+      main {
+          margin-top: 80px; /* Adjust depending on navbar height */
+        }
+
+
+
+        .hover-border {
+        border-radius: 12px;
+        transition: 0.3s ease;
+      }
+
+        .hover-border:hover {
+        box-shadow: 0 0 25px rgba(128, 0, 255, 0.7);
+        transform: scale(1.02);
+      }
+
+
+        .card {
+        background: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .address-item {
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.3s, transform 0.3s;
+        cursor: pointer;
+      }
+
+      .address-item:hover {
+        background-color: rgba(0, 123, 255, 0.1); /* light blue highlight */
+        transform: translateX(5px); /* optional subtle move */
+      }
+
+      
+
+      .gradient-text {
+      background: linear-gradient(90deg, #7a1ddd, #dee9ff); /* Purple → Blue */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      }
+      .heartbeat-gradient {
+       background: linear-gradient(45deg, #3a0ca3, #7209b7, #4361ee);
+       background-size: 200% 200%;
+       animation: heartbeat 3s ease-in-out infinite;
+       border-radius: 12px;
+      }
+      .flowing-text {
+       background: linear-gradient(270deg, #3a0ca3, #7209b7, #4361ee, #3a0ca3);
+       background-size: 800% 800%;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       animation: flowingText 8s ease infinite;
+      }
+      .spin-slow {
+      animation: slowspin 12s linear infinite;
+      }
+
+
+
+      @keyframes slowspin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      
+      @keyframes flowingText {
+       0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+      }
+
+      @keyframes heartbeat {
+      0%, 100% {
+      background-position: 0% 50%;
+      transform: scale(1);
+      filter: brightness(1);
+      }
+      25% {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+      background-position: 50% 50%;
+      }
+      50% {
+      transform: scale(1.1);
+      filter: brightness(1.3);
+      background-position: 100% 50%;
+     }
+     75% {
+     transform: scale(1.05);
+     filter: brightness(1.2);
+      background-position: 50% 50%;
+     }
+}
+    </style>
+    
+    </style>
+  </head>
+
+
+<body id="home" class="multi-gradient-bg" >
+
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div> -->
+
+<header data-bs-theme="dark"> 
+  
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> 
+    
+    <div class="container-fluid">
+       <a href="#"><img src="/assets/images/logoash.png" alt="Ashgard Logo" width="60" height="40" class="d-inline-block align-text-center me-2"/>
+      </a> 
+      <a class="navbar-brand me-5" href="#">Ashgard Industries
+      </a> 
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" > 
+        <span class="navbar-toggler-icon"></span> 
+      </button> 
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 py-3">
+
+      <li class="nav-item">
+          <a class="nav-link active me-5 fw-semibold" aria-current="page" href="#home">Home</a> 
+      </li> 
+       <li class="nav-item">
+         <a class="nav-link active me-5 fw-semibold" aria-current="page" href="#about" >About</a> 
+        </li> 
+        <li class="nav-item"> 
+        <a class="nav-link active me-5 fw-semibold" aria-current="page" href="#services">Services</a> 
+        </li>
+        <li class="nav-item"> 
+        <a class="nav-link active me-5 fw-semibold" aria-current="page" href="#contactus">Contact Us</a> 
+      </li>
+        <!-- <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Contact Us </a>    
+          <ul class="dropdown-menu"> 
+            <li> 
+              <a class="dropdown-item" href="#">Cebu Office: +63 32 520 8534</a> 
+            </li>
+             <li> 
+              <a class="dropdown-item" href="#">Makati Office: 63-2-833-29974</a>
+             </li>
+             </ul>
+             </li>  -->
+            </ul> 
+          </div> 
+        </div>
+       </nav> 
+       
+      </header>
+      
+    
+
+  
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <div class="container marketing ">
+ 
+        <div class="row featurette">
+          
+          
+          <div class="col-md-12 mt-lg-0 hero-text-bg">
+
+      
+          <h1 class="featurette-heading fw-bold mb-3 gradient-text " style="font-size: 4rem;">ASHGARD INDUSTRIES
+            <div class="fw-light typing-text" id="typingText"></div> 
+          </h1>
+                <p class="text-center fs-5 fw-bold mt-0 mb-5 col-12">
+                Ashgard Industries is a leading independent technology company and a global provider of project management and integration services. We deliver proven end-to-end security, safety, and communication systems and platforms.
+              </p>
+          
+          
+
+          
+        <p class="text-center">
+        <button type="button" class="btn btn-modern btn-scale btn-spinner mt-lg-3 fw-semibold text-center mb-5" data-bs-toggle="modal" data-bs-target="#getStartedModal">
+          <span class="btn-text">Start Here! &raquo;</span>
+          <div class="spinner-border spinner-border-sm" role="status"></div>
+        </button> 
+        </p>
+        
+
+        
+        
+      
+      
+            <!-- <h1 class="featurette-heading lh-1 mb-3 fw-bold gradient-text" style="font-size: 4rem;">
+              ASHGARD INDUSTRIES
+            </h1>
+            
+             <h2 class="fw-light">Guarding Data, Powering Progress</h2>
+            <p>
+              <button type="button" class="btn btn-modern btn-scale btn-spinner mt-lg-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#getStartedModal">
+                
+            <span class="btn-text">Get Started &raquo;</span>
+            <div class="spinner-border spinner-border-sm" role="status">
+            </div>
+          </button>
+            </p> -->
+        
+
+            <!-- Get Started Modal -->
+            <div class="modal fade" id="getStartedModal" tabindex="-1" aria-labelledby="getStartedModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="getStartedModalLabel">Get Started with Ashgard Industries</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="name" class="form-label">Full Name:</label>
+                        <input type="text" class="form-control" id="name" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="service" class="form-label">Service Interest:</label>
+                        <select class="form-select" id="service" required>
+                          <option value="" selected disabled>Select a service</option>
+                          <option value="information-tracing">Information Tracing</option>
+                          <option value="cyber-security">Cyber Security Services</option>
+                          <option value="evidence-collection">Evidence Collection</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+
+           
+          </div>
+
+
+          <div class="col-md-5">
+          </div>
+        </div>
+        
+        
+        <!-- <hr class="featurette-divider" /> -->
+
+        <hr class="featurette-divider fade-scroll opacity-0" id="about"/>
+        
+      <!-- <div class="col-12">
+          <div class="card my-5 hover-border">
+            <div class="card-body py-5">
+    
+              <p class="card-text text-center fs-5 fw-semibold">
+                Ashgard Industries is a leading independent technology company and a global provider of project management and integration services. We deliver proven end-to-end security, safety, and communication systems and platforms.
+              </p>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="row featurette ">
+          <div class="col-md-7">  
+            
+            <h1 class="featurette-heading fw-normal lh-1 fade-scroll opacity-0 fw-bold flowing-text about-title hover-border">ABOUT US</h1>
+            <p class="lead fade-scroll-right opacity-0 fw-light about-text mt-3 mt-5"></p>
+            <p class="fw-bold text-muted mb-2 fade-scroll opacity-0">Build anything you want with Ashgard</p> 
+            <p class="fw-bold text-muted mb-2 fade-scroll opacity-0">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BCd</p> 
+
+            <p class="lead fade-scroll-right opacity-0 fw-light about-text mt-3 mt-5">
+             ASHGARD was Founded in 2014 by group of I.T. and Intelligence experts. ASHGARD brings together the power of operational experience
+             with a deep understanding of open source Intelligence. ASHGARD has manufactured and developed its own products, delivring off-the-shelf solutions as well as
+             custom-tailored alternatives solutions for Intelligence agencies. Today our company is both an agile innovator and a heavy hitter succesfully servicing many authorized
+             agencies in the Philippine Goverment and some intelligence agency in the SouthEast Asia. We are confident we have what it takes to repeat that sucess for you.
+            </p>
+            
+          <p class="btn-text text-center mt-5 mb-0 fw-bold"><a href="Aboutus.html">Learn more &raquo;</a></p>
+            
+          </div>
+          <div class="col-md-5">
+            <img src="../assets/images/500b500building.jpeg" class="featurette-image img-fluid mx-auto rounded-start-5 fade-scroll opacity-0 hover-border" alt="First featurette image" width="500" height="500">
+          </div>
+        </div>
+
+
+        <hr class="featurette-divider fade-scroll opacity-0 mb-5" id="services" />
+
+
+        <div class="row featurette">
+          
+          
+          <h1 class="featurette-heading fw-normal text-center lh-1 fade-scroll opacity-0 fw-bold mt-5 mb-5">
+    <span class="service-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" fill="currentColor" class="bi bi-gear spin-slow" viewBox="0 0 16 16">
+            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+        </svg>
+        SERVICES
+    </span>
+</h1>
+
+
+          <!-- <h1 class="featurette-heading fw-normal text-center lh-1 fade-scroll opacity-0 fw-bold mt-5 mb-5 "> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" fill="currentColor" class="bi bi-gear spin-slow" viewBox="0 0 16 16">
+          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+          </svg>SERVICES</h1> -->
+
+
+
+          <div class="col-md-7 order-md-2">
+            <a href="Infoindex.html"><h2 class="featurette-heading fw-normal lh-1 fade-scroll opacity-0 fw-bold flowing-text about-title">
+              Information Tracing</a>
+              <!-- <span class="text-body-secondary">See for yourself.</span> -->
+            </h2>
+            <p class="fw-bold text-muted mb-lg-0 mt-5 fade-scroll opacity-0">Build anything you want with Ashgard</p> 
+            <p class="fw-bold text-muted mb-lg-3 mt-0 fade-scroll opacity-0">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BCd</p> 
+
+            <p class="lead fade-scroll opacity-0 fw-light about-text">
+              Information tracing is the systematic process of following the flow, history, and transformation of data or a request through a system or process. This process provides detailed visibility into the origin, movement, and changes of information, which is essential for various purposes including debugging, performance optimization, quality control, and compliance. 
+            </p>
+             <p class="btn-text text-center mt-5 mb-0 fw-bold flowing"><a href="">Learn more &raquo;</a></p>
+          </div>  
+          <div class="col-md-5 order-md-1">
+             <a href="#"><img src="../assets/images/developer-1-500.jpg" class="featurette-image img-fluid mx-auto rounded-end-5 fade-scroll opacity-0 hover-border hover-border" alt="First featurette image" width="500" height="500"></a>
+           </div>
+        </div>
+
+
+        <hr class="featurette-divider fade-scroll opacity-0" />
+        
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <a href="Cyberindex.html"><h2 class="featurette-heading fw-normal lh-1 fade-scroll opacity-0 fw-bold flowing-text about-title">
+              Cyber Security Services</a>
+              <!-- <span class="text-body-secondary">Checkmate.</span> -->
+            </h2>
+            <p class="fw-bold text-muted mb-lg-0 mt-5 fade-scroll opacity-0">Build anything you want with Ashgard</p> 
+            <p class="fw-bold text-muted mb-lg-3 mt-0 fade-scroll opacity-0">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BCd</p> 
+            <p class="lead fade-scroll opacity-0 fw-light about-text">
+            Cybersecurity is the practice of protecting computer systems, networks, and data from digital attacks, damage, or unauthorized access.
+            </p>
+             <p class="btn-text text-center mt-5 mb-0 fw-bold"><a href="">Learn more &raquo;</a></p>
+          </div>
+          <div class="col-md-5">
+          <a href="#"><img src="../assets/images/hero.jpg" class="featurette-image img-fluid mx-auto rounded-start-5 fade-scroll opacity-0 hover-border" alt="First featurette image" width="500" height="500"></a>
+           </div>
+        </div>
+
+        
+        <hr class="featurette-divider fade-scroll opacity-0" />
+
+          <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <a href="Evidence.html"><h2 class="featurette-heading fw-normal lh-1 fade-scroll opacity-0 fw-bold gradient-text about-title">
+              Evidence Collection</a>
+              <!-- <span class="text-body-secondary">See for yourself.</span> -->
+            </h2>
+            <p class="fw-bold text-muted mb-lg-0 mt-5 fade-scroll opacity-0">Build anything you want with Ashgard</p> 
+            <p class="fw-bold text-muted mb-lg-3 mt-0 fade-scroll opacity-0">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BCd</p> 
+            <p class="lead fade-scroll opacity-0 fw-light about-text">
+                Evidence collection is a systematic process of documenting, protecting, and preserving evidence at a crime scene to ensure its integrity for forensic analysis and legal proceedings. 
+            </p>
+             <p class="btn-text text-center mt-5 mb-0 fw-bold"><a href="">Learn more &raquo;</a></p>
+          </div>  
+          <div class="col-md-5 order-md-1">
+             <a href="#"><img src="../assets/images/herodrone1.jpeg" class="featurette-image img-fluid mx-auto rounded-end-5 fade-scroll opacity-0 hover-border" alt="First featurette image" width="500" height="500"></a>
+          </div>
+        </div>
+
+        <div id="contactus"></div>
+
+        <hr class="featurette-divider fade-scroll opacity-0"/> 
+
+        
+
+        <!-- CONTACT SECTION -->
+        <div class="container mt-5 mb-5 fade-scroll-right opacity-0">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              
+
+              <div class="text-center mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" 
+                    fill="currentColor" class="bi bi-person-lines-fill contact-icon"
+                    viewBox="0 0 16 16">
+                  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
+                </svg>
+              </div>
+
+
+              </div>
+              <h1 class="text-center fw-bold mb-4 gradient-text">Contact Us
+              </h1>
+              <p class="text-center text-light mb-4">
+                
+                Have questions or want to reach out? Send us your email and we’ll get back to you.
+              </p>
+
+              <form class="contact-form shadow-lg p-4 rounded-4">
+                <!-- <div class="mb-3">
+                  <label for="name" class="form-label fw-semibold text-light">Your Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div> -->
+
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold text-light">Your Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="message" class="form-label fw-semibold text-light">Message</label>
+                  <textarea class="form-control" id="message" rows="4" placeholder="Write your message..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-modern btn-scale fw-semibold w-100">
+                  Send Message
+                </button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+
+      <hr class="featurette-divider fade-scroll opacity-0" /> 
+
+      
+      <!-- /.container -->
+      <!-- FOOTER -->
+      
+  <footer class="bd-footer"> 
+  <div class="container py-0 mt-0 mb-0">
+    <div class="row">
+      <div class="col-lg-3 offset-lg-2 mb-3">
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none ms-lg-5 fade-scroll opacity-0" href="/" aria-label="Ashgard">
+            <img src="/assets/images/logoash.png" alt="Ashgard Logo" width="300" height="200" class="d-block me-2"/>
+          </a>
+        </div>
+      </div>
+
+  <div class="col-12 col-lg-2 offset-lg-2 mb-3 text-center text-lg-start fade-scroll-right opacity-0">
+  <h5>Address</h5>
+  <ul class="list-unstyled">
+    <li class="mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+      </svg>
+      <span class="fw-bold">Main Office:</span><br>
+      
+      <a href="https://www.google.com/maps/place/Casili+Elementary+School/data=!4m2!3m1!1s0x0:0xcd9b01665378e7db?sa=X&ved=1t:2428&ictx=111">C. Congson St., Cambiohan, Casili, Consolacion, Cebu, Philippines </a>
+      <p> +63 32 520 8534</p>
+    </li>
+    <li class="mb-2" href="">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg>
+      <span class="fw-bold">Manila Office:</span>
+      <br>
+      <a href="https://www.google.com/maps/place/Antel+Spa+%26+Serenity+Suites/data=!4m2!3m1!1s0x0:0x6c19b92217575372?sa=X&ved=1t:2428&ictx=111"> 2F, Antel SPA and Serenity Suites, Gen. Luna St., corner Makati Ave., and Salamanca St., Makati City, Philippines</a>
+      <p>+63-2-833-29974</p>
+    </li>
+  </ul>
+</div>
+<!-- <hr class="featurette-divider" />  -->
+      <div class="col-12 col-lg-12 text-center text-lg-center mt-5 mb-0">
+        <p class="mb-0 text-body-secondary">&copy; 2025 Ashgard Industries. All rights reserved.</p>
+
+ </div>
+    </div>
+    </footer>
+
+     
+    <script src="../assets/dist/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+
+    <script src="../assets/js/scroll-fade.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+    AOS.init();
+    </script>
+
+
+    <script>
+      document.querySelector('html').classList.remove('no-js');
+      if (!window.Cypress) {
+        const scrollCounter = document.querySelector('.js-scroll-counter');
+
+        AOS.init({
+          mirror: true
+        });
+
+        document.addEventListener('aos:in', function(e) {
+          console.log('in!', e.detail);
+        });
+
+        window.addEventListener('scroll', function() {
+          scrollCounter.innerHTML = window.pageYOffset;
+        });
+      }
+    </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const submitBtn = document.querySelector('#getStartedModal .btn-primary');
+    const modalElement = document.getElementById('getStartedModal');
+    const form = modalElement.querySelector('form');
+    const modalBody = modalElement.querySelector('.modal-body');
+
+    // Track submitted emails
+    const submittedEmails = new Set();
+
+    submitBtn.addEventListener('click', () => {
+      if (form.checkValidity()) {
+        const email = form.querySelector('#email').value.trim().toLowerCase();
+
+        // Check for duplicate email
+        if (submittedEmails.has(email)) {
+          showAlert('⚠️ This email has already been submitted.', 'warning');
+          return;
+        }
+
+        // Add email to set
+        submittedEmails.add(email);
+
+        // Show loading spinner
+        showSpinner();
+
+        // After loading, show success alert
+        setTimeout(() => {
+          hideSpinner();
+          showAlert('✅ <strong>Successfully</strong> submitted! We will get in touch with you soon.', 'success');
+          form.reset();
+        }, 1500);
+
+      } else {
+        form.reportValidity();
+      }
+    });
+
+    function showSpinner() {
+      // Remove existing spinner if any
+      const oldSpinner = modalBody.querySelector('.loading-spinner');
+      if (oldSpinner) oldSpinner.remove();
+
+      const spinner = document.createElement('div');
+      spinner.className = 'd-flex justify-content-center mt-3 loading-spinner';
+      spinner.innerHTML = `
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      `;
+      modalBody.appendChild(spinner);
+    }
+
+    function hideSpinner() {
+      const spinner = modalBody.querySelector('.loading-spinner');
+      if (spinner) spinner.remove();
+    }
+
+    function showAlert(message, type) {
+      const existingAlert = modalBody.querySelector('.alert');
+      if (existingAlert) existingAlert.remove();
+
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} mt-3 fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = message;
+
+      modalBody.appendChild(alertDiv);
+
+      setTimeout(() => {
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        modal.hide();
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        alertDiv.addEventListener('transitionend', () => alertDiv.remove());
+      }, 2000);
+    }
+  });
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  // scroll positions (adjust these depending on your layout)
+  const aboutStart = 600;      
+  const servicesStart = 1200;  
+  const contactStart = 1800;   // when Contact Us becomes active
+
+  function updateActiveLink() {
+    const scrollY = window.scrollY;
+
+    navLinks.forEach(link => link.classList.remove("active-section"));
+
+    if (scrollY < aboutStart) {
+      document.querySelector('.nav-link[href="#home"]').classList.add("active-section");
+
+    } else if (scrollY >= aboutStart && scrollY < servicesStart) {
+      document.querySelector('.nav-link[href="#about"]').classList.add("active-section");
+
+    } else if (scrollY >= servicesStart && scrollY < contactStart) {
+      document.querySelector('.nav-link[href="#services"]').classList.add("active-section");
+
+    } else if (scrollY >= contactStart) {
+      document.querySelector('.nav-link[href="#contactus"]').classList.add("active-section");
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveLink);
+  updateActiveLink(); // run once at start
+});
+</script>
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  // scroll positions (adjust depending on your page layout)
+  const aboutStart = 600;      // when About should be active
+  const servicesStart = 1200;  // when Services should be active
+
+  function updateActiveLink() {
+    const scrollY = window.scrollY;
+
+    navLinks.forEach(link => link.classList.remove("active-section"));
+
+    if (scrollY < aboutStart) {
+      document.querySelector('.nav-link[href="#home"]').classList.add("active-section");
+    } else if (scrollY >= aboutStart && scrollY < servicesStart) {
+      document.querySelector('.nav-link[href="#about"]').classList.add("active-section");
+    } else if (scrollY >= servicesStart) {
+      document.querySelector('.nav-link[href="#services"]').classList.add("active-section");
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveLink);
+  updateActiveLink(); // run once at start
+});
+</script> -->
+
+<script>
+ 
+ document.addEventListener('DOMContentLoaded', () => {
+  const phrases = [
+    "Guarding Data, Powering Progress..",
+    "Securing Systems, Ensuring Safety..",
+    "Innovation for a Safer Tomorrow.."
+  ];
+
+  const typingElement = document.getElementById('typingText');
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 50;  // typing speed in ms
+  const deletingSpeed = 20; // deleting speed in ms
+  const delayBetweenPhrases = 1500; // delay before next phrase
+
+  function typeLoop() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      typingElement.textContent = currentPhrase.substring(0, charIndex--);
+    } else {
+      typingElement.textContent = currentPhrase.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      // finished typing, wait then delete
+      isDeleting = true;
+      setTimeout(typeLoop, delayBetweenPhrases);
+    } else if (isDeleting && charIndex < 0) {
+      // finished deleting, move to next phrase
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typeLoop, typingSpeed);
+    } else {
+      setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
+    }
+  }
+
+  typeLoop();
+});
+
+
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const navbarCollapse = document.getElementById('navbarCollapse');
+
+  function hideNavbar() {
+    if (navbarCollapse.classList.contains('show')) {
+      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+      if (bsCollapse) {
+        bsCollapse.hide();
+      } else {
+        new bootstrap.Collapse(navbarCollapse).hide();
+      }
+    }
+  }
+
+  // Close navbar when clicking outside
+  document.addEventListener('click', function (event) {
+    const isClickInside = navbarCollapse.contains(event.target) || event.target.classList.contains('navbar-toggler');
+    if (!isClickInside) {
+      hideNavbar();
+    }
+  });
+
+  // Close only when clicking nav links that are NOT the Contact Us dropdown
+  const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+  navLinks.forEach(link => {
+    link.addEventListener('click', hideNavbar);
+  });
+});
+</script> 
+
+  </body>
+</html>
+
+  </body>
+</html>

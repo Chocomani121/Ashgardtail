@@ -1,0 +1,23 @@
+.fade-scroll {
+    transition: opacity 1s ease-in-out;
+}
+
+/* General opacity helpers used by the JS */
+.opacity-0 {
+    opacity: 0 !important;
+}
+.opacity-100 {
+    opacity: 1 !important;
+}
+
+/* Slide-in-from-right for SVGs or other elements */
+.fade-scroll-right.opacity-0 {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-scroll-right.opacity-100 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}

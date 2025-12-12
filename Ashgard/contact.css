@@ -1,0 +1,23 @@
+.contact-form {
+  background: rgba(30, 0, 50, 0.5);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(155, 80, 255, 0.3);
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ccc;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #a855f7, #6d28d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
